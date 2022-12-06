@@ -7,19 +7,13 @@ use App\Http\Request\validadorForm1;
 
 class ControladorPaginas extends Controller
 {
-    function fFormulario(){
-        return view('formulario');
+    function fTarea(){
+        return view('tareas');
     }
-    function fTabla(){
-        return view('tabla');
+    function fTpendientes(){
+        return view('tareasP');
     }
-    public function fGuardar(Request $req){
-//        return $req->all();
-
-        if(request()->filled('txtTitulo')){
-            return 'Se guardo'.request()->input('txtTitulo');
-        }
-            return "no se guardo";
+    public function procesarTareas(validadorForm1 $req){
+        return redirect('/tareas')->with('confirmacion','Se guardaron los datos');
     }
-    
 }

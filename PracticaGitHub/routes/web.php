@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\controladorPaginas;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,15 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::get('/formulario', [ControladorPaginas::class, 'fFormulario'])->name('NFormulario');
-//Route::get('/tabla', [ControladorPaginas::class, 'fTabla'])->name('NTabla');
-//Route::post('/guardar', [ControladorPaginas::class, 'fGuardar'])->name('NGuardar');
-
-Route::get('/formulario', function() { return view('formulario'); })->name('routeFormulario');
-Route::view('/formulario', 'formulario')->name('routeFormulario');
-Route::view('/tabla', 'tabla')->name('routeTabla');
-Route::view('/guardar', 'guardar')->name('routeGuardar');
-/*
-Route::get('/', [ControladorPaginas::class, 'fFormulario'])->name('NFormulario');
-Route::get('/tabla', [ControladorPaginas::class, 'fTabla'])->name('NTabla');
-Route::post('/guardar', [ControladorPaginas::class, 'fGuardar'])->name('NGuardar');
+//----------ruta para tareas----------
+Route::get('/tareas', [controladorPaginas::class, 'fTarea'])->name('NNuevaT');
+//----------ruta para tareasP----------
+Route::get('/tareasP', [controladorPaginas::class, 'fTpendientes'])->name('NConsultarT');
+//----------ruta para guardarTarea----------
+Route::post('/guardarTarea', [controladorPaginas::class, 'procesarTareas'])->name('NProcesarT');
